@@ -14,5 +14,14 @@ describe 'Shoe' do
       end
     end
 
+        it 'only keeps track of unique brands' do
+          Shoe::BRANDS.clear
+          brands = ["Uggs", "Rainbow", "Nike", "Nike"]
+          brands.each do |brand|
+            Shoe.new(brand)
+          end
+
+          expect(Shoe::BRANDS.size).to eq(3)
+        end
   end
 end
